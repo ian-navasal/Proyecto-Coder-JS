@@ -53,9 +53,14 @@ main h2 {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .fin-compra{
     margin-left: 64px;
+    margin-right: 32px;
 }
 
+.carrito button {
+    padding: 2px;
+}
