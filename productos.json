@@ -1,0 +1,32 @@
+[
+    {
+        "nombre": "Remera",
+        "precio": 15000,
+        "img": "https://cdn.pixabay.com/photo/2020/05/22/17/55/mockup-5206371_1280.jpg"
+    },
+    {
+        "nombre": "Gorra",
+        "precio": 5000,
+        "img": "https://cdn.pixabay.com/photo/2017/07/21/14/28/hat-2525910_1280.png"
+    },
+    {
+        "nombre": "Bermuda",
+        "precio": 20000,
+        "img": "https://cdn.pixabay.com/photo/2015/05/27/06/08/jeans-785990_1280.jpg"
+    },
+    {
+        "nombre": "Medias",
+        "precio": 3000,
+        "img": "https://cdn.pixabay.com/photo/2015/04/09/19/56/sock-715024_960_720.jpg"
+    },
+    {
+        "nombre": "Campera",
+        "precio": 40000,
+        "img": "https://cdn.pixabay.com/photo/2017/09/07/04/54/khaki-2723896_1280.jpg"
+    },
+    {
+        "nombre": "Zapatillas",
+        "precio": 35000,
+        "img": "https://cdn.pixabay.com/photo/2020/07/15/18/24/footwear-5408640_960_720.png"
+    }
+]
