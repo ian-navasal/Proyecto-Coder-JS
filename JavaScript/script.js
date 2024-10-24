@@ -86,7 +86,7 @@ const encontrarCarrito = () => {
 
 const mostrarCarrito = document.querySelector(".texto-carrito")
 const finCompra = document.querySelector(".fin-compra");
-const vaciarCarrito = document.querySelector(".vaciar-carrito")
+const verCarrito = document.querySelector(".ver-carrito")
 
 function totalCarrito() {
     let total = 0;
@@ -106,38 +106,65 @@ function agregarCarrito(id) {
         productoCarrito.cantidad = 1;
         carrito.push(productoCarrito);
     }
-
     convertirCarrito(carrito)
     totalCarrito()
 }
 
+const contenidoCarrito = () => {
+    if (carrito.length > 0) {
+        let listaCarrito = "";
+        carrito.forEach(prod => {
+            listaCarrito += `${prod.nombre}: ${prod.cantidad} <br>`
+        })
+        return listaCarrito
+    } else {
+        return "El carrito de compras está vacío"
+    }
+}
+
 finCompra.addEventListener("click", () => {
-    Swal.fire({
-        title: "¡Muchas gracias por tu compra!",
-        icon: "success",
-        confirmButtonColor: "#6e85a3"
-    });
-    carrito = [];
-    localStorage.setItem("carritoJSON", "")
-    totalCarrito();
+    if (carrito.length > 0) {
+        Swal.fire({
+            title: "¡Muchas gracias por tu compra!",
+            icon: "success",
+            confirmButtonColor: "#6e85a3"
+        });
+        carrito = [];
+        localStorage.setItem("carritoJSON", "")
+        totalCarrito();
+    } else {
+        Swal.fire({
+            html: contenidoCarrito(),
+            confirmButtonColor: "#6e85a3",
+            confirmButtonText: "Aceptar",
+        })
+    }
 })
 
-vaciarCarrito.addEventListener("click", () => {
-    Swal.fire({
-        title: "¿Desea vaciar el carrito de compras?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#6e85a3",
-        confirmButtonText: "Aceptar",
-        cancelButtonText: "Cancelar"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            carrito = [];
-            localStorage.setItem("carritoJSON", "");
-            totalCarrito()
-        }
-    });
+verCarrito.addEventListener("click", () => {
+    if (carrito.length > 0) {
+        Swal.fire({
+            html: contenidoCarrito(),
+            showCancelButton: true,
+            reverseButtons: true,
+            cancelButtonColor: "#6e85a3",
+            cancelButtonText: "Volver",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "Vaciar",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                carrito = [];
+                localStorage.setItem("carritoJSON", "");
+                totalCarrito()
+            }
+        });
+    } else {
+        Swal.fire({
+            html: contenidoCarrito(),
+            confirmButtonColor: "#6e85a3",
+            confirmButtonText: "Aceptar",
+        })
+    }
 })
 
 const app = () => {

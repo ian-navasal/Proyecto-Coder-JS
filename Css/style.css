@@ -78,7 +78,7 @@ main h2 {
     align-items: center;
 }
 
-.fin-compra {
+.ver-carrito {
     margin-left: 64px;
     margin-right: 32px;
 }
@@ -97,4 +97,8 @@ main h2 {
     background-color: #809bbfcb; 
     cursor: pointer; 
     color: #6e85a3;
+}
+
+.texto-swal {
+    font-weight: 800;
 }
